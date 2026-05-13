@@ -1,18 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { StatusBar } from "@/components/StatusBar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const ibmPlexSans = localFont({
+  src: [
+    { path: "../fonts/IBMPlexSans-VariableFont_wdth_wght.ttf", style: "normal" },
+    { path: "../fonts/IBMPlexSans-Italic-VariableFont_wdth_wght.ttf", style: "italic" },
+  ],
+  variable: "--font-ibm-sans",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const ibmPlexMono = localFont({
+  src: [
+    { path: "../fonts/IBMPlexMono-Regular.ttf",  weight: "400", style: "normal" },
+    { path: "../fonts/IBMPlexMono-Medium.ttf",   weight: "500", style: "normal" },
+    { path: "../fonts/IBMPlexMono-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../fonts/IBMPlexMono-Bold.ttf",     weight: "700", style: "normal" },
+  ],
+  variable: "--font-ibm-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-bg text-text">
         <NavBar />
